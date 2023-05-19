@@ -43,5 +43,5 @@ Thank you for checking out this repository! This app was made by Zeeshan Mukhtar
 
 ## Screenshot
 
-[![Dict App](/Outcome/Dict.png)]()
-[![Not found pic](/Outcome/error.png)]()
+[![Dict App](./Asset/Quiz.png)]()
+[![Not found pic](./Asset/Quiz_Result.png)]()
