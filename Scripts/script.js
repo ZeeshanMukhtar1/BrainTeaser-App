@@ -1,3 +1,4 @@
+// Selecting elements from the DOM
 const container = document.querySelector('.container');
 const questionBox = document.querySelector('.question');
 const choicesBox = document.querySelector('.choices');
@@ -109,34 +110,54 @@ const quiz = [
   },
 ];
 
-// Making Variables
-let currentQuestionIndex = 0;
-let score = 0;
-let quizOver = false;
-let timeLeft = 15;
-let timerID = null;
+// Initializing variables
+let currentQuestionIndex = 0; // Index of the current question
+let score = 0; // User's score
+let quizOver = false; // Flag to check if the quiz is over
+let timeLeft = 15; // Time left for each question
+let timerID = null; // ID of the timer interval
 
 // Arrow Function to Show Questions
 const showQuestions = () => {
+  // Get the question details from the quiz array based on the current question index
   const questionDetails = quiz[currentQuestionIndex];
+  // Set the question text in the questionBox element
   questionBox.textContent = questionDetails.question;
-
+  // Clear the choicesBox element
   choicesBox.textContent = '';
+  // Loop through each choice in the questionDetails.choices array
+
   for (let i = 0; i < questionDetails.choices.length; i++) {
     const currentChoice = questionDetails.choices[i];
+    // Create a new div element for the choice
+
     const choiceDiv = document.createElement('div');
+    // Set the choice text in the choiceDiv element
+
     choiceDiv.textContent = currentChoice;
+    // Add the 'choice' class to the choiceDiv element
+
     choiceDiv.classList.add('choice');
+    // Append the choiceDiv element to the choicesBox element
+
     choicesBox.appendChild(choiceDiv);
+    // Add click event listener to each choiceDiv element
 
     choiceDiv.addEventListener('click', () => {
+      // Check if the choiceDiv is already selected
+
       if (choiceDiv.classList.contains('selected')) {
+        // If selected, remove the 'selected' class
+
         choiceDiv.classList.remove('selected');
       } else {
+        // If not selected, add the 'selected' class
+
         choiceDiv.classList.add('selected');
       }
     });
   }
+  // Check if there are more questions in the quiz
 
   if (currentQuestionIndex < quiz.length) {
     startTimer();
@@ -145,22 +166,30 @@ const showQuestions = () => {
 
 // Function to check answers
 const checkAnswer = () => {
+  // Get the selected choice element
   const selectedChoice = document.querySelector('.choice.selected');
+  // Check if the selected choice matches the correct answer
   if (selectedChoice.textContent === quiz[currentQuestionIndex].answer) {
     // alert("Correct Answer!");
+    // If correct, increment the score and display a correct answer alert
     displayAlert('Correct Answer!');
     score++;
   } else {
     // alert("Wrong answer");
+    // If wrong, display a wrong answer alert with the correct answer
     displayAlert(
       `Wrong Answer! ${quiz[currentQuestionIndex].answer} is the Correct Answer`
     );
   }
+  // Reset the time left and move to the next question
   timeLeft = 15;
   currentQuestionIndex++;
+  // Check if there are more questions or the quiz is over
   if (currentQuestionIndex < 10) {
+    // If there are more questions, show the next question
     showQuestions();
   } else {
+    // If the quiz is over, stop the timer and show the final score
     stopTimer();
     showScore();
   }
@@ -168,19 +197,27 @@ const checkAnswer = () => {
 
 // Function to show score
 const showScore = () => {
+  // Clear the question and choices
   questionBox.textContent = '';
   choicesBox.textContent = '';
+  // Display the score
   scoreCard.textContent = `You Scored ${score} out of ${quiz.length}!`;
+  // Display quiz completion alert
   displayAlert('You have completed this quiz!');
+  // Change the text of the nextBtn to 'Play Again'
   nextBtn.textContent = 'Play Again';
+  // Set the quizOver flag to true
   quizOver = true;
+  // Hide the timer
   timer.style.display = 'none';
 };
 
 // Function to Show Alert
 const displayAlert = (msg) => {
+  // Display the alert message
   alert.style.display = 'block';
   alert.textContent = msg;
+  // Hide the alert after 2 seconds
   setTimeout(() => {
     alert.style.display = 'none';
   }, 2000);
@@ -190,10 +227,10 @@ const displayAlert = (msg) => {
 const startTimer = () => {
   clearInterval(timerID); // Check for any exist timers
   timer.textContent = timeLeft;
-
   const countDown = () => {
     timeLeft--;
     timer.textContent = timeLeft;
+    // Check if time is up
     if (timeLeft === 0) {
       const confirmUser = confirm(
         'Time Up!!! Do you want to play the quiz again'

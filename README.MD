@@ -33,13 +33,13 @@ The app is developed using HTML, CSS, and JavaScript and uses the following comp
 
 ## Credits
 
-Thank you for checking out this repository! This app was made by Zeeshan Mukhtar using HTML, CSS, and JavaScript. If you have any feedback or suggestions, feel free to reach out to me. Happy learning!
+Thank you for checking out this repository! This app was made by [Zeeshan Mukhtar](https://www.instagram.com/zeshanmukhtar01/) using HTML, CSS, and JavaScript. If you have any feedback or suggestions, feel free to reach out to me. Happy learning!
 
 ## Connect With ME
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://twitter.com/ZeshanMukhtar01)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/ZeshanMukhtar01)
-[![twitter](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/zeshanmukhtar01/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/zeshanmukhtar01/)
 
 ## Screenshot
 
